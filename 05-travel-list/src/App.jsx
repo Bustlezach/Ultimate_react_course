@@ -39,6 +39,10 @@ function App() {
     setItems(newItems);
   };
 
+  const handleClearList = () => {
+    setItems([]);
+  };
+
   return (
     <div className="app">
       <Logo />
