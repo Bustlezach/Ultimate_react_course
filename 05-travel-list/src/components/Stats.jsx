@@ -2,6 +2,13 @@ import React from "react";
 
 function Stat({ items }) {
   const itemsLen = items.length;
+  if (!itemsLen) {
+    return (
+      <p className="stats">
+        <em>Start adding some items to your packing list 🚀</em>
+      </p>
+    );
+  }
 
   const packedNum = items.filter((item) => item.packed);
 

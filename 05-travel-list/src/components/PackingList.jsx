@@ -20,6 +20,7 @@ function PackingList({ initialItems, handlePacked, handleDelete }) {
           items
         )}
       </ul>
+      <div className="actions"></div>
     </div>
   );
 }
