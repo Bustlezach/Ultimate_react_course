@@ -4,11 +4,11 @@ import React from "react";
 function PackingList({ initialItems, handlePacked, handleDelete }) {
   const items = initialItems.map((item) => (
     <li key={item.description}>
-      <input type="checkbox" onClick={() => handleDelete(item.id)} />
+      <input type="checkbox" onClick={() => handlePacked(item.id)} />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
-      <button onClick={() => handlePacked(item.id)}>❌</button>
+      <button onClick={() => handleDelete(item.id)}>❌</button>
     </li>
   ));
   return (

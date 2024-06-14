@@ -35,7 +35,7 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    const newItems = items.filter((item) => item.id != id);
+    const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
   };
 
