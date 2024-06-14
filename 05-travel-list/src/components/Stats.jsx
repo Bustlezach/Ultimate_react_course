@@ -11,7 +11,7 @@ function Stat({ items }) {
       <em>
         😎 You have {len === 0 ? "empty" : len} {len > 1 ? "items" : "item"} on
         your list, and you already packed {packedNum.length} (
-        {isNaN(percentage) ? "X" : percentage})%
+        {isNaN(percentage) ? "X" : percentage}%)
       </em>
     </footer>
   );

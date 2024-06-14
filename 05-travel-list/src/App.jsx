@@ -8,7 +8,6 @@ function App() {
   const [items, setItems] = useState([]);
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
-  // const [packed, setPacked] = useState(false);
 
   const handleDescription = (event) => {
     const { value } = event.target;
@@ -20,22 +19,23 @@ function App() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newItem = { description, quantity, packed: false };
+    if (!description) return;
+    const newItem = { id: Date.now(), description, quantity, packed: false };
     setItems((prev) => [...prev, newItem]);
     setDescription("");
     setQuantity("");
   };
 
-  const handlePacked = (desc) => {
+  const handlePacked = (id) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
-        item.description === desc ? { ...item, packed: !item.packed } : item
+        item.id === id ? { ...item, packed: !item.packed } : item
       )
     );
   };
 
-  const handleDelete = (desc) => {
-    const newItems = items.filter((item) => item.description != desc);
+  const handleDelete = (id) => {
+    const newItems = items.filter((item) => item.id != id);
     setItems(newItems);
   };
 
