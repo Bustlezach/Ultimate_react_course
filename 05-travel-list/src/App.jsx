@@ -7,7 +7,7 @@ import Stats from "./components/Stats";
 function App() {
   const [items, setItems] = useState([]);
   const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   const handleDescription = (event) => {
     const { value } = event.target;
@@ -23,7 +23,7 @@ function App() {
     const newItem = { id: Date.now(), description, quantity, packed: false };
     setItems((prev) => [...prev, newItem]);
     setDescription("");
-    setQuantity("");
+    setQuantity(1);
   };
 
   const handlePacked = (id) => {
@@ -40,7 +40,10 @@ function App() {
   };
 
   const handleClearList = () => {
-    setItems([]);
+    const confirmed = window.confirm(
+      "Are you sure you want to clear all items?"
+    );
+    if (confirmed) setItems([]);
   };
 
   return (
@@ -57,6 +60,7 @@ function App() {
         initialItems={items}
         handlePacked={handlePacked}
         handleDelete={handleDelete}
+        handleClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
